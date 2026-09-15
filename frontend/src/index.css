@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, button, input, select, textarea, label {
+  font-family: "Inter", "Noto Sans Tamil", "Noto Sans Devanagari", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  @apply bg-[#F8FAFC] text-slate-800 antialiased selection:bg-blue-600 selection:text-white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Inter", "Noto Sans Tamil", "Noto Sans Devanagari", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.card {
+  @apply bg-white border border-slate-100 rounded-2xl shadow-sm transition-all;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-xs font-semibold transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98];
+}
+
+.btn-primary {
+  @apply btn bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 shadow-sm shadow-blue-600/20;
+}
+
+.btn-success {
+  @apply btn bg-emerald-600 text-white hover:bg-emerald-700 active:bg-emerald-800 shadow-sm;
+}
+
+.btn-danger {
+  @apply btn bg-rose-600 text-white hover:bg-rose-700 active:bg-rose-800 shadow-sm;
+}
+
+.btn-outline {
+  @apply btn border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 hover:text-slate-900 shadow-sm;
+}
+
+.input {
+  @apply w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-600 transition-all;
+}
+
+.label {
+  @apply block text-xs font-semibold text-slate-600 mb-1.5;
+}
+
+.shadow-xs {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Voice Assistant Retracting Curtain Animation */
+.va-btn-anim {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 9999px;
+  border: 2px solid #4338ca;
+  background-color: #4f46e5;
+  color: #000000;
+  font-weight: 800;
+  font-size: 0.75rem;
+  transition: border-color 0.3s, background-color 0.3s;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.va-btn-anim::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background-color: #ffffff;
+  transition: transform 0.3s ease-out, height 0.3s ease-out;
+  transform: scaleY(1);
+  z-index: 1;
+}
+
+.va-btn-anim::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background-color: #ffffff;
+  transition: transform 0.3s ease-out;
+  transform: scaleY(1);
+  z-index: 2;
+}
+
+.va-btn-anim:hover::before {
+  transform: translateY(-100%);
+  height: 0;
+}
+
+.va-btn-anim:hover::after {
+  transform: scaleX(0);
+  transition-delay: 0.15s;
+}
+
+.va-btn-anim .va-btn-content {
+  position: relative;
+  z-index: 3;
+  color: #000000 !important;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Bell Notification Button Styling & Animation */
+.notif-bell-btn {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+  border: none;
+  outline: none;
+}
+
+.notif-bell-btn .bell-svg {
+  width: 17px;
+  height: 17px;
+  fill: #ffffff;
+}
+
+.notif-bell-btn:hover {
+  background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.45);
+}
+
+.notif-bell-btn:hover .bell-svg {
+  animation: bellRing 0.9s both;
+}
+
+@keyframes bellRing {
+  0%,
+  100% {
+    transform-origin: top;
+  }
+
+  15% {
+    transform: rotateZ(10deg);
+  }
+
+  30% {
+    transform: rotateZ(-10deg);
+  }
+
+  45% {
+    transform: rotateZ(5deg);
+  }
+
+  60% {
+    transform: rotateZ(-5deg);
+  }
+
+  75% {
+    transform: rotateZ(2deg);
+  }
+}
+
+.notif-bell-btn:active {
+  transform: scale(0.9);
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+}

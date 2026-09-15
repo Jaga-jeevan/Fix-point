@@ -1,0 +1,28 @@
+{
+  "include": [
+    "."
+  ],
+  "venvPath": ".",
+  "venv": "venv",
+  "executionEnvironments": [
+    {
+      "root": ".",
+      "extraPaths": [
+        ".",
+        "venv/lib/python3.12/site-packages"
+      ]
+    }
+  ],
+  "extraPaths": [
+    ".",
+    "venv/lib/python3.12/site-packages"
+  ],
+  "reportCallIssue": "none",
+  "reportGeneralTypeIssues": "none",
+  "reportArgumentType": "none",
+  "reportAttributeAccessIssue": "none",
+  "reportOptionalMemberAccess": "none",
+  "reportOptionalIterable": "none",
+  "reportMissingImports": "none",
+  "reportMissingTypeStubs": "none"
+}

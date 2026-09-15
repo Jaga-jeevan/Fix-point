@@ -1,0 +1,26 @@
+{
+  "include": [
+    "backend"
+  ],
+  "venvPath": "backend",
+  "venv": "venv",
+  "reportCallIssue": "none",
+  "reportGeneralTypeIssues": "none",
+  "reportArgumentType": "none",
+  "reportAttributeAccessIssue": "none",
+  "reportOptionalMemberAccess": "none",
+  "reportOptionalIterable": "none",
+  "executionEnvironments": [
+    {
+      "root": "backend",
+      "extraPaths": [
+        ".",
+        "venv/lib/python3.12/site-packages"
+      ]
+    }
+  ],
+  "extraPaths": [
+    "backend",
+    "backend/venv/lib/python3.12/site-packages"
+  ]
+}

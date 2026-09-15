@@ -1,0 +1,16 @@
+[tool.pyrefly]
+python-interpreter-path = "backend/venv/bin/python"
+search-path = ["backend", "backend/venv/lib/python3.12/site-packages"]
+project-includes = ["backend/**/*.py"]
+project-excludes = ["**/__pyrefly_virtual__/**", "backend/venv/**"]
+
+
+[tool.pyright]
+venvPath = "backend"
+venv = "venv"
+extraPaths = ["backend", "backend/venv/lib/python3.12/site-packages"]
+executionEnvironments = [
+  { root = "backend", extraPaths = ["backend", "backend/venv/lib/python3.12/site-packages"] }
+]
+exclude = ["**/__pyrefly_virtual__/**"]
+
