@@ -184,13 +184,13 @@ def get_customer_details(customer_id):
     repairs = []
     active_statuses = ["REQUESTED", "APPROVED", "ASSIGNED", "ACCEPTED", "ON_THE_WAY", "DEVICE_RECEIVED", "REPAIRING"]
 
-    sorted_requests = sorted(
-        customer.repair_requests,
-        key=lambda x: x.created_at.timestamp() if x.created_at else 0,
-        reverse=True,
+    customer_requests = (
+        RepairRequest.query.filter_by(customer_id=customer.id)
+        .order_by(RepairRequest.created_at.desc())
+        .all()
     )
 
-    for r in sorted_requests:
+    for r in customer_requests:
         r_dict = r.to_dict(include_relations=True)
         repairs.append(r_dict)
 
